@@ -89,4 +89,8 @@ public class Element implements Comparable<Element>, Calculable {
     public Element sqrt() {
         return new Element(valueC.sqrt());
     }
+
+    public Element abs() {
+        return new Element(valueC.abs());
+    }
 }

@@ -55,6 +55,16 @@ public class MatrixUtils {
         return vect;
     }
 
+    public static  MatrixCoefficientsSystem add(MatrixCoefficientsSystem matrix1, MatrixCoefficientsSystem matrix2) {
+        MatrixCoefficientsSystem m = new MatrixCoefficientsSystem(matrix1);
+        for(int i = 0; i < m.getMatrix().length; i++) {
+            for (int j = 0; j < m.getMatrix().length; j++) {
+                m.setEl(i, j, (Ratio) m.getEl(i, j).add(matrix2.getEl(i, j)));
+            }
+        }
+        return m;
+    }
+
     public static MatrixCoefficientsSystem swapRows(MatrixCoefficientsSystem matrix, int rowIndex1, int rowIndex2)
     {
         Ratio temp;
@@ -78,6 +88,20 @@ public class MatrixUtils {
         }
         return matrix;
     }
+
+    public static MatrixCoefficientsSystem getEmatrix(int dimention) {
+        MatrixCoefficientsSystem m = new MatrixCoefficientsSystem(dimention);
+        for (int i = 0; i < dimention; i++) {
+            for (int j = 0; j < dimention; j++) {
+                if(j == i)
+                    m.setEl(i, j, new Ratio(1, j));
+                else
+                    m.setEl(i, j, new Ratio(0, j));
+            }
+        }
+        return m;
+    }
+
 
     public static MatrixCoefficientsSystem convertToSymmetrical(MatrixCoefficientsSystem matrix) {
         return multiply(transposition(matrix), matrix);

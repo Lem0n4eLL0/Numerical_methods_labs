@@ -17,12 +17,9 @@ public class GausMethod implements Solvable {
 
     @Override
     public Answer calculate() {
-        if(answer == null)
-        {
-            answer = new Answer(system.getDimension());
-            uConversion(system);
-            answer = SystemUtils.reverseCourse(system);
-        }
+        answer = new Answer(system.getDimension());
+        uConversion(system);
+        answer = SystemUtils.reverseCourse(system);
         return answer;
     }
 

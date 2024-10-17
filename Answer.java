@@ -2,6 +2,7 @@ package NumMetods;
 
 import NumMetods.SystemComponents.Elements.Element;
 import NumMetods.SystemComponents.Elements.Ratio;
+import NumMetods.SystemComponents.VectorSolutionsSystem;
 
 import java.util.Arrays;
 
@@ -14,6 +15,13 @@ public class Answer {
         result = new Ratio[systDimension];
         for(int i = 0; i < systDimension; i++)
             result[i] = new Ratio(0, i);
+        numOfOperation = 0;
+        hasSolution = true;
+    }
+    public Answer(Element[] el) {
+        result = new Ratio[el.length];
+        for(int i = 0; i < el.length; i++)
+            result[i] = new Ratio(el[i], i);
         numOfOperation = 0;
         hasSolution = true;
     }
@@ -37,6 +45,11 @@ public class Answer {
 
     public void setResult(Ratio[] result) {
         this.result = result;
+    }
+    public void setResult(Element[] result) {
+        this.result = new Ratio[result.length];
+        for (int i = 0; i < result.length; i++)
+            this.result[i] = new Ratio(result[i], i);
     }
     public void setRoot(int index, Ratio value)
     {

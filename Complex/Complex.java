@@ -25,6 +25,9 @@ public class Complex implements Comparable<Complex>{
     public Complex div(Complex el) {
         return new Complex((re * el.re + im * el.im) / (el.im * el.im + el.re * el.re), (im * el.re - re * el.im) / (el.im * el.im + el.re * el.re));
     }
+    public Complex abs() {
+        return new Complex(Math.abs(re), Math.abs(im));
+    }
     public Complex sqrt() {
         if(isComplex())
             return new Complex(0, 0);

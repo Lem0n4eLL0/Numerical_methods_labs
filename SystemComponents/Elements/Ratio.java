@@ -63,6 +63,10 @@ public class Ratio extends Element {
     public Element div(double el) {
         return new Ratio(super.div(el), xid);
     }
+    @Override
+    public Element abs() {
+        return new Ratio(super.abs(), xid);
+    }
     public void setXid(int xid) {
         this.xid = xid;
     }

@@ -23,12 +23,15 @@ public class VectorSolutionsSystem {
             this.vector[i] = new Element(vector[i]);
     }
 
-    public void display() {
-        System.out.println(Arrays.toString(vector));
-    }
-
     public VectorSolutionsSystem(VectorSolutionsSystem vector) {
         this(vector.getVector());
+    }
+
+    public VectorSolutionsSystem(int dimension) {
+        this(new double[dimension]);
+    }
+    public void display() {
+        System.out.println(Arrays.toString(vector));
     }
 
     public Element getEl(int index) {
